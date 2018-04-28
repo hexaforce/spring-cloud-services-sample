@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 
-	<appender name="stash" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+	<appender name="stash"
+		class="net.logstash.logback.appender.LogstashTcpSocketAppender">
 		<destination>127.0.0.1:9600</destination>
 
 		<!-- encoder is required -->
@@ -11,5 +12,5 @@
 	<root level="DEBUG">
 		<appender-ref ref="stash" />
 	</root>
-	
+
 </configuration>
