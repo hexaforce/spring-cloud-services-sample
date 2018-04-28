@@ -1,11 +1,11 @@
 spring:
   application:
-    name: basic-services
+    name: basic-services1
   rabbitmq:
     host: localhost
     port: 5672
-    username: vagrant
-    password: vagrant
+    username: guest
+    password: guest
   cloud:
     config:
       failFast: true
