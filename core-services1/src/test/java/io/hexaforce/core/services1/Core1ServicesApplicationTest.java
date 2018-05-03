@@ -9,7 +9,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @DirtiesContext
-public class CoreServicesApplication1Test {
+public class Core1ServicesApplicationTest {
 
 	@Test
 	public void contextLoads() {
