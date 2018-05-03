@@ -16,6 +16,7 @@
 	</properties>
 
 	<modules>
+		<module>services-common</module>
 		<module>core-services1</module>
 		<module>core-services2</module>
 		<module>core-services3</module>

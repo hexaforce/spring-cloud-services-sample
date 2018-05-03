@@ -9,13 +9,24 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.ApplicationPidFileWriter;
 import org.springframework.context.ConfigurableApplicationContext;
 
+import microservices.cloud.service.utile.ServiceUtileApplication;
 import microservices.cloud.service.utile.StartupCompleteEvent;
+import microservices.cloud.services.common.ServicesCommonApplication;
 
 @SpringBootApplication
 public class BasicServicesApplication1 {
+	
 	public static void main(String[] args) throws BeansException, IOException {
-		ConfigurableApplicationContext context = new SpringApplicationBuilder().sources(BasicServicesApplication1.class)
-				.web(WebApplicationType.SERVLET).listeners(new ApplicationPidFileWriter()).run(args);
+		
+		ConfigurableApplicationContext context = new SpringApplicationBuilder(BasicServicesApplication1.class)
+				.sources(ServiceUtileApplication.class)
+				.sources(ServicesCommonApplication.class)
+				.web(WebApplicationType.SERVLET)
+				.listeners(new ApplicationPidFileWriter())
+				.run(args);
+		
 		context.getBean(StartupCompleteEvent.class).onComplete(context);
+		
 	}
+	
 }
