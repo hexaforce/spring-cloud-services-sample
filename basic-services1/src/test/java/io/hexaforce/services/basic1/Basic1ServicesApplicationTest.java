@@ -1,4 +1,4 @@
-package io.hexaforce.services1;
+package io.hexaforce.services.basic1;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -9,7 +9,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @DirtiesContext
-public class BasicServicesApplication1Test {
+public class Basic1ServicesApplicationTest {
 
 	@Test
 	public void contextLoads() {

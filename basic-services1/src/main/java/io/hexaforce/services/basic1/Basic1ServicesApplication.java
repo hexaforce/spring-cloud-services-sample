@@ -1,9 +1,10 @@
-package io.hexaforce.services1;
+package io.hexaforce.services.basic1;
 
 import java.io.IOException;
 
 import org.springframework.beans.BeansException;
 import org.springframework.boot.WebApplicationType;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.ApplicationPidFileWriter;
@@ -14,11 +15,12 @@ import microservices.cloud.service.utile.StartupCompleteEvent;
 import microservices.cloud.services.common.ServicesCommonApplication;
 
 @SpringBootApplication
-public class BasicServicesApplication1 {
+@EnableAutoConfiguration
+public class Basic1ServicesApplication {
 	
 	public static void main(String[] args) throws BeansException, IOException {
 		
-		ConfigurableApplicationContext context = new SpringApplicationBuilder(BasicServicesApplication1.class)
+		ConfigurableApplicationContext context = new SpringApplicationBuilder(Basic1ServicesApplication.class)
 				.sources(ServiceUtileApplication.class)
 				.sources(ServicesCommonApplication.class)
 				.web(WebApplicationType.SERVLET)
