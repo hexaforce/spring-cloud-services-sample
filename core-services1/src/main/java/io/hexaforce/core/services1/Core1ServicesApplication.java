@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import org.springframework.beans.BeansException;
 import org.springframework.boot.WebApplicationType;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.ApplicationPidFileWriter;
@@ -14,6 +15,7 @@ import microservices.cloud.service.utile.StartupCompleteEvent;
 import microservices.cloud.services.common.ServicesCommonApplication;
 
 @SpringBootApplication
+@EnableAutoConfiguration
 public class Core1ServicesApplication {
 	
 	public static void main(String[] args) throws BeansException, IOException {
