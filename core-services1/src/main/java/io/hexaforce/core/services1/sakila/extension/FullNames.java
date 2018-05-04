@@ -1,4 +1,4 @@
-package sakila.extension;
+package io.hexaforce.core.services1.sakila.extension;
 
 public interface FullNames {
 

@@ -1,4 +1,4 @@
-package sakila.model;
+package io.hexaforce.core.services1.sakila.repository;
 
 import java.io.Serializable;
 

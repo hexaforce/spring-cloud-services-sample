@@ -1,4 +1,4 @@
-package sakila.model;
+package io.hexaforce.core.services1.sakila.repository;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -19,12 +19,13 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import io.hexaforce.core.services1.sakila.AbstractEntity;
+import io.hexaforce.core.services1.sakila.type.Rating;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import sakila.AbstractEntity;
-import sakila.type.Rating;
+
 
 @Entity
 @Data

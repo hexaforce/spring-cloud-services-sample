@@ -1,4 +1,4 @@
-package sakila.model;
+package io.hexaforce.core.services1.sakila.repository;
 
 import java.util.List;
 
@@ -10,12 +10,12 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import io.hexaforce.core.services1.sakila.AbstractEntity;
+import io.hexaforce.core.services1.sakila.extension.FullNames;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import sakila.AbstractEntity;
-import sakila.extension.FullNames;
 
 @Entity
 @Data

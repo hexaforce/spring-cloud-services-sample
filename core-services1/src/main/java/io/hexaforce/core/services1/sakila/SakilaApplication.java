@@ -1,4 +1,4 @@
-package sakila;
+package io.hexaforce.core.services1.sakila;
 
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

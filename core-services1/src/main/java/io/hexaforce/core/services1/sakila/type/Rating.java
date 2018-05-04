@@ -1,4 +1,4 @@
-package sakila.type;
+package io.hexaforce.core.services1.sakila.type;
 
 import lombok.Getter;
 
