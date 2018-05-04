@@ -1,7 +1,7 @@
-package io.hexaforce.core.services1.sakila.repository;
+package io.hexaforce.core.services1.sakila.model;
 
-import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -25,39 +26,55 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "payment")
-public class Payment extends AbstractEntity {
+@Table(name = "rental")
+public class Rental extends AbstractEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "payment_id")
-	private Integer paymentId;
-
-	@Column(name = "amount")
-	private BigDecimal amount;
+	@Column(name = "rental_id")
+	private Integer rentalId;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "payment_date")
-	private Date paymentDate;
+	@Column(name = "rental_date")
+	private Date rentalDate;
+
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "return_date")
+	private Date returnDate;
+
+	@OneToMany(mappedBy = "rental")
+	private List<Payment> payments;
 
 	@ManyToOne
 	@JoinColumn(name = "customer_id")
 	private Customer customer;
 
 	@ManyToOne
-	@JoinColumn(name = "rental_id")
-	private Rental rental;
+	@JoinColumn(name = "inventory_id")
+	private Inventory inventory;
 
 	@ManyToOne
 	@JoinColumn(name = "staff_id")
 	private Staff staff;
 
+	public Payment addPayment(Payment payment) {
+		payments.add(payment);
+		payment.setRental(this);
+		return payment;
+	}
+
+	public Payment removePayment(Payment payment) {
+		payments.remove(payment);
+		payment.setRental(null);
+		return payment;
+	}
+
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
 	}
 
-	public void setRental(Rental rental) {
-		this.rental = rental;
+	public void setInventory(Inventory inventory) {
+		this.inventory = inventory;
 	}
 
 	public void setStaff(Staff staff) {

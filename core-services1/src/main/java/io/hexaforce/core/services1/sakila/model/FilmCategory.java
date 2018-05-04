@@ -1,4 +1,4 @@
-package io.hexaforce.core.services1.sakila.repository;
+package io.hexaforce.core.services1.sakila.model;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;

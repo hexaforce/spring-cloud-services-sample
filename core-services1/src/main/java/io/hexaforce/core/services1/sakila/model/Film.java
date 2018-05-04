@@ -1,4 +1,4 @@
-package io.hexaforce.core.services1.sakila.repository;
+package io.hexaforce.core.services1.sakila.model;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -65,7 +65,7 @@ public class Film extends AbstractEntity {
 	private BigDecimal replacementCost;
 
 	@Column(name = "special_features")
-	private Object specialFeatures;
+	private String specialFeatures;
 
 	@Column(name = "title")
 	private String title;
