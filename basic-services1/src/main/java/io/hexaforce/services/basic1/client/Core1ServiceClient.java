@@ -10,7 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class Core1ServiceClient {
 	
-	private final RestTemplate restTemplate;
+	private RestTemplate restTemplate;
 
 	@Autowired
 	public Core1ServiceClient(RestTemplate restTemplate) {
