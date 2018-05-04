@@ -24,11 +24,11 @@ public class FilmCategory extends AbstractEntity {
 	private FilmCategoryPK id;
 
 	@ManyToOne
-	@JoinColumn(name = "category_id")
+	@JoinColumn(name = "category_id", referencedColumnName = "category_id", insertable = false, updatable = false)
 	private Category category;
 
 	@ManyToOne
-	@JoinColumn(name = "film_id")
+	@JoinColumn(name = "film_id", referencedColumnName = "film_id", insertable = false, updatable = false)
 	private Film film;
 
 	public void setCategory(Category category) {

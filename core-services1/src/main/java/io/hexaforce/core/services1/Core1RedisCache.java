@@ -10,10 +10,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.cache.RedisCacheConfiguration;
 import org.springframework.data.redis.cache.RedisCacheManager;
-import org.springframework.data.redis.cache.RedisCacheWriter;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.serializer.RedisSerializationContext;
+import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 @Configuration
 @EnableCaching
@@ -31,13 +32,22 @@ public class Core1RedisCache extends CachingConfigurerSupport {
 		redisTemplate.setConnectionFactory(cf);
 		return redisTemplate;
 	}
-
+	
 	@Bean
-	public CacheManager redisCacheManager(RedisCacheWriter cacheWriter, RedisCacheConfiguration defaultCacheConfiguration) {
-		RedisCacheManager cacheManager = new RedisCacheManager(cacheWriter, defaultCacheConfiguration);
-		return cacheManager;
-	}
+	public CacheManager cacheManager(RedisConnectionFactory connectionFactory) {
+		RedisCacheManager redisCacheManager = RedisCacheManager
+				.builder(connectionFactory)
+				.cacheDefaults(
+					RedisCacheConfiguration
+						.defaultCacheConfig()
+						.serializeValuesWith(
+							RedisSerializationContext.SerializationPair.fromSerializer(new StringRedisSerializer())
+						)
+				).build();
 
+		return redisCacheManager;
+	}
+	
 	@Bean
 	public KeyGenerator redisKeyGenerator() {
 		return new KeyGenerator() {

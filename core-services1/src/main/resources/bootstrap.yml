@@ -27,4 +27,4 @@ spring:
       discovery:
         service-id: config-server
         enabled: false
-      uri: http://localhost:8888
+      uri: http://192.168.56.101:8888

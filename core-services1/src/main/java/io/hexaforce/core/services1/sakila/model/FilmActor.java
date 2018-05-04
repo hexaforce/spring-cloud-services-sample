@@ -24,11 +24,11 @@ public class FilmActor extends AbstractEntity {
 	private FilmActorPK id;
 
 	@ManyToOne
-	@JoinColumn(name = "actor_id")
+	@JoinColumn(name = "actor_id", referencedColumnName = "actor_id", insertable = false, updatable = false)
 	private Actor actor;
 
 	@ManyToOne
-	@JoinColumn(name = "film_id")
+	@JoinColumn(name = "film_id", referencedColumnName = "film_id", insertable = false, updatable = false)
 	private Film film;
 
 	public void setActor(Actor actor) {
